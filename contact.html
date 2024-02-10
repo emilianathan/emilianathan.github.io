@@ -1,0 +1,174 @@
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <style type="text/css">
+        body {
+            background-color: #D8EBFB; 
+            margin: 0; padding: 0; 
+            font-family: "Gill Sans Extrabold", sans-serif; 
+            text-align: center;
+            background-image: url('background.jpg');
+        }
+
+        nav { 
+            text-align: left;  
+            background-color: #486CE6; 
+            color: #FFF5EE; 
+            padding: 10px;
+            position: fixed; 
+            width: 100%; 
+            top: 0px; 
+            z-index: 1000;}
+
+        nav a {
+            color: #FFF5EE; 
+            text-decoration-style: none; 
+            padding: 10px; 
+            margin: 10px;}
+
+        main h1 {
+            margin-top: 0px;}
+
+        main {
+            margin-top: 60px;
+            align-content: center;
+        }
+
+        .form-box {
+            font-size: 18px;
+            border: 5px solid #E66CC2; 
+            padding: 20px; /* Padding inside the box */
+            width: 400px; /* Width of the box */
+            margin: 0 auto; /* Center the box horizontally */
+            background-color: #486CE6;
+            border-radius: 5px;
+        }
+
+        form {
+            color: #FFF5EE
+        }
+
+        input[type="submit"] {
+            align-items: center;
+            display: block;
+            margin: 20px auto; 
+            padding: 10px 20px; 
+            font-size: 18px; 
+            background-color: #E66CC2;
+            border: none;
+            border-radius: 5px; 
+            cursor: pointer;
+            color: #FFF5EE;           
+        }
+
+        input[type="submit"]:hover {
+            background-color: #A64C95;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #FFF5EE;
+            font-weight: bold;
+        }
+
+        input[type="text"], select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px #FFF5EE;
+            border-radius: 5px;
+        }
+
+        .contact-info span {
+            color: #FFF5EE; 
+            display: block;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+
+        footer { 
+            background-color: #486CE6; 
+            color: #FFF5EE; text-align: center;
+            padding: .5px 0; 
+            position: fixed; 
+            bottom: 0; 
+            width: 100%; 
+            z-index: 1000; 
+            left: 0;
+        }
+
+    </style>
+<head>
+<body>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="story.html">Our Stories</a>
+        <a href="contact.html">Contact Us!</a>
+    </nav>
+
+    <main>
+    <h1 style='text-align:center'><span style='color:#E66CC2'>Contact Us!</h1>
+    <head>
+        <title>Contact Us!</title>
+    </head>
+    <body>
+
+        <div class="form-box">
+            <form>
+        <form method='get' action='#'>
+            <label>Parent Name: </label>
+            <input type='text' placeholder='Enter parent name' name="name1"/>
+            <br />
+            <br />
+            <label>Child Name: </label>
+            <input type='text' placeholder='Enter child name' name="name1"/>
+            <br /> <br />
+            <label>Hospital:</label> 
+            <select size="1" name="hospital">
+                <option>Dana Farber Cancer Institute</option>
+                <option>Massachusetts General Hospital</option>
+                <option>Boston Children's Hospital</option>
+                <option>Beth Israel Deaconess Medical Center</option>
+                <option>Tufts Medical Center</option>
+            <br />
+            <br />
+            </select>
+            <br /> <br>
+            <div class="section-label">
+                <label>Dream character?</label></div>
+
+            <select size="1" name="character">
+                <option>Animal</option>
+                <option>Astronaut</option>
+                <option>Doctor</option>
+                <option>Mermaid</option>
+                <option>Princess</option>
+                <option>Robot</option>
+                <option>Superhero</option>
+
+            </select>
+        
+        <div class="submit-container" align="center">
+            <input type="submit" value="Submit">
+        </div>
+
+        </form>
+         <div class="contact-info">
+            <span>Additional Contact Information: </span>
+            <span>Email: ADreamDay@gmail.com</span>
+            <span>Phone: 917-886-3015</span>
+        </div>
+        </div>
+
+    </body>
+</html>
+
+</body>
+<footer>
+    <p>&copy; 2024 A Dream Day, a proud 501(c)3 nonprofit organization. All rights reserved.</p>
+</footer>
+
+</html>
