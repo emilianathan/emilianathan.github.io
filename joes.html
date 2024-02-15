@@ -26,6 +26,7 @@
 <body>
     <h1>Joe's Hotdog Stand</h1>
     <script>
+        // set constant values for prices
         const hotdog_price = 4.65;
         const fries_price = 3.75;
         const drink_price = 1.89;
@@ -60,7 +61,7 @@
             return roundedNum;      
         }
         
-
+        // function that calculates the subtotal price
         function findSubtotal(num1, num2, num3) {
             var subDogs = hotdog_price * num1;
             var subFries = fries_price * num2;
@@ -69,15 +70,17 @@
             return subtotal;
         }
 
+        // function that adds MA state tax to a given value provided 
         function addTax(curr_total) {
             curr_total *= 1.0625;
             return curr_total;
         }
-
+        //call the function to calculate the subtotal price
         var subtotal = findSubtotal(numDogs, numFries, numSoda);
+
+        // store the subtotal for full receipt calculations at the bottom
         var bottomSubtotal = subtotal;
-        var roundedSubtotal = showMoney(subtotal);
-        document.write("<br>"+ "Your subtotal is: " + roundedSubtotal + "<br>");
+        document.write("<br>"+ "Your subtotal is: " + showMoney(subtotal) + "<br>");
 
         if (subtotal >= 25) {
             document.write("You are eligible for the Joe's special offer of 10% off orders of $25+" + "<br>");
@@ -89,9 +92,10 @@
 
         document.write("With 6.25% tax, your final total is: " + showMoney(subtotal) + "<br>");
 
-
+        // handle the receipt at the bottom for full order clarity
         document.write("<br>" + "<br>"+  "Full order info: " + "<br>" + "<br>");
 
+        // calculate and print the number of each item and the total per item
         var dogTotal = hotdog_price * numDogs;
         document.write("Quantity of hotdogs ordered: " + numDogs + " -- Total for hotdogs: " + showMoney(dogTotal) + "<br>");
         var friesTotal = fries_price * numFries;
@@ -99,9 +103,13 @@
         var drinksTotal = drink_price * numSoda;
         document.write("Quantity of drinks ordered: " + numSoda + " -- Total for drinks: " + showMoney(drinksTotal) + "<br>");
     
-
-        document.write("Subtotal before discount: " + showMoney(bottomSubtotal) + "<br>");
+        // print the total before any discount
+        if (bottomSubtotal < 25) {
+            document.write("Subtotal: "+ showMoney(bottomSubtotal));
+        }
+        // handle the discount case for printing
         if (bottomSubtotal >= 25) {
+            document.write("Subtotal before discount: " + showMoney(bottomSubtotal) + "<br>");
             withDisc = (bottomSubtotal * 0.9);
             discAmt = bottomSubtotal - withDisc;
             document.write(" - 10% Discount Amount: " + showMoney(discAmt)+ "<br>");
