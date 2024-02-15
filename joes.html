@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Joe's Hotdog Stand</title>
+    <style>
+        body {
+            background-color: #ACD99F; 
+            margin: 0; 
+            padding: 0; 
+            font-family: "Gill Sans Extrabold", sans-serif;
+            align-content: center;
+            text-align: center
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Joe's Hotdog Stand</h1>
+    <script>
+        const hotdog_price = 4.65;
+        const fries_price = 3.75;
+        const drink_price = 1.89;
+
+        var numDogs = prompt("How many hotdogs do you want?");
+        var numFries = prompt("How many fries do you want?");
+        var numSoda = prompt("How many drinks do you want?");
+
+        function showMoney(num) {
+
+            var movedDecimal = num * 100;
+            // get the integer value of the number
+            var findInteger = movedDecimal / 100;
+            var integerPart = Math.floor(findInteger); 
+            // get the decimal value of the numbr
+            var decimalPart = movedDecimal % 100; 
+            // round decimal value to the nearest whole integer
+            var roundedDecimal = Math.round(decimalPart);
+            // decimal --> string
+            var decimalString = roundedDecimal.toString();
+            // check the length of the decimal 
+            if (decimalString.length === 1) {
+                // case for a number like 2.5, concatenate a 0
+                decimalString = "0" + decimalString; 
+            } else if (decimalString.length === 0) {
+                // case for a number like 2, concantenate 00
+                decimalString = "00";
+            }
+            // concatenate integer + decimal into appropriate form
+            var roundedNum = "$" + integerPart + "." + decimalString;
+
+            return roundedNum;      
+        }
+        
+
+        function findSubtotal(num1, num2, num3) {
+            var subDogs = hotdog_price * num1;
+            var subFries = fries_price * num2;
+            var subDrink = drink_price * num3;
+            var subtotal = subDogs + subFries + subDrink;
+            return subtotal;
+        }
+
+        function addTax(curr_total) {
+            curr_total *= 1.0625;
+            return curr_total;
+        }
+
+        var subtotal = findSubtotal(numDogs, numFries, numSoda);
+        var bottomSubtotal = subtotal;
+        var roundedSubtotal = showMoney(subtotal);
+        document.write("<br>"+ "Your subtotal is: " + roundedSubtotal + "<br>");
+
+        if (subtotal >= 25) {
+            document.write("You are eligible for the Joe's special offer of 10% off orders of $25+" + "<br>");
+            subtotal = (subtotal * 0.9);
+            document.write("Your new subtotal (with discount) is: " + showMoney(subtotal) + "<br>");
+        }
+
+        subtotal = addTax(subtotal);
+
+        document.write("With 6.25% tax, your final total is: " + showMoney(subtotal) + "<br>");
+
+
+        document.write("<br>" + "<br>"+  "Full order info: " + "<br>" + "<br>");
+
+        var dogTotal = hotdog_price * numDogs;
+        document.write("Quantity of hotdogs ordered: " + numDogs + " -- Total for hotdogs: " + showMoney(dogTotal) + "<br>");
+        var friesTotal = fries_price * numFries;
+        document.write("Quantity of fries ordered: " + numFries + " -- Total for fries: " + showMoney(friesTotal) + "<br>");
+        var drinksTotal = drink_price * numSoda;
+        document.write("Quantity of drinks ordered: " + numSoda + " -- Total for drinks: " + showMoney(drinksTotal) + "<br>");
+    
+
+        document.write("Subtotal before discount: " + showMoney(bottomSubtotal) + "<br>");
+        if (bottomSubtotal >= 25) {
+            withDisc = (bottomSubtotal * 0.9);
+            discAmt = bottomSubtotal - withDisc;
+            document.write(" - 10% Discount Amount: " + showMoney(discAmt)+ "<br>");
+            document.write("Subtotal after 10% discount: " + showMoney(withDisc) + "<br>");
+            bottomSubtotal = withDisc
+        }
+        
+        var totalWithTax = addTax(bottomSubtotal);
+        var taxAmt = totalWithTax - bottomSubtotal;
+        document.write(" + Tax amount: " + showMoney(taxAmt) + "<br>");
+        document.write("<br>" + "Your final total is: " + showMoney(subtotal) + "<br>");
+
+    </script>
+</body>
+</html>
