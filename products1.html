@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JSON Products</title>
+	<style type="text/css">
+		body, html{font-size: 15px;}
+	</style>
+</head>
+
+<body>
+	<script language="javascript">
+	
+    products = [
+
+    {
+        "Name": "All the Light we Cannot See",
+        "Description": "World War II multi-perspective",
+        "Price": 25,
+        "Categories": ["fiction", "historical-fiction", "tv-adaptation"],
+    },
+    {
+        "Name": "Hamnet",
+        "Description": "Story of William Shakespeare's family life",
+        "Price": 22,
+        "Categories": ["fiction", "historical-fiction", "no-adaptation"],
+    },
+    {
+        "Name": "A Marriage Portrait",
+        "Description": "Story of Lucrezia di Cosimo de'Medici, 16th Century noblewoman",
+        "Price": 30,
+        "Categories": ["fiction", "historical-fiction", "no-adaptation"],
+    },
+    {
+        "Name": "Song of Achilles",
+        "Description": "Ancient tale of Achilles and Patroclus",
+        "Price": 18,
+        "Categories": ["fiction", "historical-retelling", "no-adaptation"],
+    },
+    {
+        "Name": "Pride and Prejudice",
+        "Description": "All-time great novel about young Elizabeth Bennett",
+        "Price": 25,
+        "Categories": ["fiction", "classic", "movie-adaptation"],
+    },
+    {
+        "Name": "A Little Life",
+        "Description": "Story of a young, mysterious man's journey through life's great trials",
+        "Price": 30,
+        "Categories": ["fiction", "play-adaptation"],
+    },
+    {
+        "Name": "Normal People",
+        "Description": "Two young teenagers grow up and together in Ireland",
+        "Price": 15,
+        "Categories": ["fiction", "tv-adaptation"],
+    },
+    {
+        "Name": "Six of Crows",
+        "Description": "A massive heist with the fate of the Grishaverse on the line",
+        "Price": 31,
+        "Categories": ["fantasy", "tv-adaptation"],
+    },
+    {
+        "Name": "Crooked Kingdom",
+        "Description": "Back for vengence and blood",
+        "Price": 31,
+        "Categories": ["fantasy", "tv-adaptation"],
+    }];
+
+    strProducts = JSON.stringify(products);
+    document.write(strProducts);
+
+    document.write("<br>"+"<br>"+ "Please Note: I wasn't sure if this was supposed to be done with or without parsing/nice information display, so I did it two different ways: Method 1 above, Method 2 below: "+"<br>"+"<br>")
+
+    strProducts = JSON.stringify(products);
+    allProducts = JSON.parse(strProducts);
+    products.forEach(element => {
+        document.write ("Name: " + element["Name"] + "<br>");
+        document.write ("Description: " + element["Description"] + "<br>");
+        document.write ("Price: $" + element["Price"] + "<br>");
+        document.write ("Categories: " + element["Categories"] + "<br>");
+    });
+    console.log(strProducts)
+
+	</script>
+</body>
+</html>
