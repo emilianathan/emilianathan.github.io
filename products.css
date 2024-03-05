@@ -1,0 +1,11 @@
+@charset "utf-8";
+products {font-size: 22px; width: 60%; margin: 100px auto 0 auto; border:.5px solid #FFF; min-height: 300px; padding: 20px; background-color: #d69cbc;}
+product {display:block; margin-bottom: 15px;}
+product name {text-decoration: underline;}
+product description:before {content:"("; }
+product description:after {content:")"; }
+product description { font-size: 15px; text-transform: capitalize; width: 160px;}
+product price{font-size: 20px; display: inline-block;}
+product price:before {content:"-- $"; }
+product categories:before {content: "Genre/Adaptation status"; font-size: 18px; display:block; }
+product categories category {list-style-type:disc; list-style-position: inside; display:list-item; font-size: 17px}
