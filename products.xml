@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="products.css"?>
+<products>
+    <product>
+        <name>All the Light we Cannot See</name>
+        <description>World War II multi-perspective</description>
+        <price>25</price>
+        <categories>
+            <category>fiction</category>
+            <category>historical-fiction</category>
+            <category>tv-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Hamnet</name>
+        <description>Story of William Shakespeare's family life</description>
+        <price>22</price>
+        <categories>
+            <category>fiction</category>
+            <category>historical-fiction</category>
+            <category>no-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>A Marriage Portrait</name>
+        <description>Story of Lucrezia di Cosimo de'Medici, 16th Century noblewoman</description>
+        <price>30</price>
+        <categories>
+            <category>fiction</category>
+            <category>historical-fiction</category>
+            <category>no-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Song of Achilles</name>
+        <description>Ancient tale of Achilles and Patroclus</description>
+        <price>18</price>
+        <categories>
+            <category>fiction</category>
+            <category>historical-retelling</category>
+            <category>no-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Pride and Prejudice</name>
+        <description>All-time great novel about young Elizabeth Bennett</description>
+        <price>25</price>
+        <categories>
+            <category>fiction</category>
+            <category>classic</category>
+            <category>movie-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>A Little Life</name>
+        <description>Story of a young, mysterious man's journey through life's great trials</description>
+        <price>30</price>
+        <categories>
+            <category>fiction</category>
+            <category>play-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Normal People</name>
+        <description>Two young teenagers grow up and together in Ireland</description>
+        <price>15</price>
+        <categories>
+            <category>fiction</category>
+            <category>tv-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Game of Thrones</name>
+        <description>Explores the thrilling world of Westeros through many lenses</description>
+        <price>20</price>
+        <categories>
+            <category>fantasy</category>
+            <category>tv-adaptation</category>
+        </categories>
+     </product>
+    <product>
+        <name>Six of Crows</name>
+        <description>A massive heist with the fate of the Grishaverse on the line</description>
+        <price>31</price>
+        <categories>
+            <category>fantasy</category>
+            <category>tv-adaptation</category>
+        </categories>
+    </product>
+    <product>
+        <name>Crooked Kingdom</name>
+        <description>Back for vengence and blood</description>
+        <price>31</price>
+        <categories>
+            <category>fantasy</category>
+            <category>tv-adaptation</category>
+        </categories>
+    </product>
+</products>
