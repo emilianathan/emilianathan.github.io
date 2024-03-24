@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Poetry API</title>
-    <meta charset="utf-8"/>
-    <script>
-        function getPoetryData() {
-            var userTitle = document.getElementById('userTitle').value;
-            var url = "https://poetrydb.org/title/" + userTitle + "/lines.json";
+function getPoetryData() {
+    var userTitle = document.getElementById('userTitle').value;
+    var url = "https://poetrydb.org/title/" + userTitle + "/lines.json";
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    // Clear previous data
-                    document.getElementById("titleData").innerHTML = "";
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Clear previous data
+            document.getElementById("titleData").innerHTML = "";
 
-                    // Join all lines of the poem with line breaks and display in a single paragraph element
-                    var poemText = data.join("<br>");
-                    var poemElement = document.createElement("p");
-                    poemElement.innerHTML = poemText;
-                    document.getElementById("titleData").appendChild(poemElement);
-                })
-                .catch(error => console.log("Issue with the fetch command. ERROR."));
-        }
-    </script>
-</head>
-<body>
-    <h1>Poems and Prose!</h1>
-    <form>
-        Submit the title of a poem: <input type='text' name='userTitle' id="userTitle">
-        <br><input type="button" value="Get Response" onclick="getPoetryData()">
-    </form>
-    <div id="titleData">&nbsp;</div>
-</body>
-</html>
+            // Access the array of poem lines
+            var lines = data[0].lines; // Assuming the response contains only one object
+            
+            // Iterate over each line of the poem and create a new paragraph element for each
+            lines.forEach(poemLine => {
+                var lineElement = document.createElement("p");
+                lineElement.textContent = poemLine;
+                document.getElementById("titleData").appendChild(lineElement);
+            });
+        })
+        .catch(error => console.log("Issue with the fetch command. ERROR."));
+}
