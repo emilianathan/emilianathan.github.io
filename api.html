@@ -8,12 +8,11 @@
             var userTitle = document.getElementById('userTitle').value; // Corrected the ID
             var url = "https://poetrydb.org/title/" + userTitle + "/lines.json";
 
-            fetch(url)
-                .then(response => response.json()) // Corrected to response.json()
-                .then(data => {
-                    document.getElementById("titleData").innerHTML = "Lines found: " + data.length + "<br>" + data.join("<br>");
-                })
-                .catch(error => console.log("Issue with the fetch command. ERROR."));
+            .then(response => response.json()) // Corrected to response.json()
+            .then(data => {
+                document.getElementById("titleData").innerHTML = "Lines found: " + data.length + "<br>" + data.join("<br>");
+            })
+            .catch(error => console.log("Issue with the fetch command. ERROR."));
         }
     </script>
 </head>
