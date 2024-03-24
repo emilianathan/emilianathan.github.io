@@ -6,19 +6,39 @@
     <style>
         body {
             background-color: #7cb46b;
-            text-color: #FFF;
-            padding-top: 50px; 
             text-align: center;
+            color: #ffffff;
+            padding-top: 50px;
         }
 
         #poetryForm {
-            margin-bottom: 20px; 
+            margin-bottom: 20px;
+        }
+
+        #userTitle {
+            color: #000000;
+        }
+
+        #getButton {
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #getButton:hover {
+            background-color: #023020;
         }
 
         #titleData {
-            margin: 0 auto; 
-            max-width: 600px; 
-            text-align: center;
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: left;
         }
     </style>
     <script>
@@ -29,30 +49,24 @@
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    // Clear previous data
                     document.getElementById("titleData").innerHTML = "";
-
-                    // Access the array of poem lines
-                    var lines = data[0].lines; // Assuming the response contains only one object
-                    
-                    // Iterate over each line of the poem and create a new paragraph element for each
+                    var lines = data[0].lines;
                     lines.forEach(poemLine => {
                         var lineElement = document.createElement("p");
                         lineElement.textContent = poemLine;
                         document.getElementById("titleData").appendChild(lineElement);
                     });
                 })
-                .catch(error => console.log("Issue with the fetch command. Error."));
+                .catch(error => console.log("Issue with the fetch command. ERROR."));
         }
     </script>
 </head>
 <body>
     <h1>Poems and Prose!</h1>
-    <p>Note to user: Not all poems are in the database, here are a few to check out: "Ozymandias", "A Letter to a Live Poet", and "On the Death of the Rev. Dr. Sewell". Enjoy! </p>
-    <form>
+    <form id="poetryForm">
         Submit the title of a poem: <input type='text' name='userTitle' id="userTitle">
-        <br><input type="button" value="Get Response" onclick="getPoetryData()">
+        <br><input type="button" value="Get Response" id="getButton" onclick="getPoetryData()">
     </form>
-    <div id="titleData">&nbsp;</div>
+    <div id="titleData"></div>
 </body>
 </html>
