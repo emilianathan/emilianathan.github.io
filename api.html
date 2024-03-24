@@ -5,14 +5,23 @@
     <meta charset="utf-8"/>
     <script>
         function getPoetryData() {
-            var userTitle = document.getElementById('userTitle').value; // Corrected the ID
+            var userTitle = document.getElementById('userTitle').value;
             var url = "https://poetrydb.org/title/" + userTitle + "/lines.json";
 
-            .then(response => response.json()) // Corrected to response.json()
-            .then(data => {
-                document.getElementById("titleData").innerHTML = "Lines found: " + data.length + "<br>" + data.join("<br>");
-            })
-            .catch(error => console.log("Issue with the fetch command. ERROR."));
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear previous data
+                    document.getElementById("titleData").innerHTML = "";
+                    
+                    // Iterate over each line of the poem and create a new element for each
+                    data.forEach(line => {
+                        var lineElement = document.createElement("p");
+                        lineElement.textContent = line;
+                        document.getElementById("titleData").appendChild(lineElement);
+                    });
+                })
+                .catch(error => console.log("Issue with the fetch command. ERROR."));
         }
     </script>
 </head>
