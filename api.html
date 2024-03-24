@@ -13,13 +13,12 @@
                 .then(data => {
                     // Clear previous data
                     document.getElementById("titleData").innerHTML = "";
-                    
-                    // Iterate over each line of the poem and create a new element for each
-                    data.forEach(line => {
-                        var lineElement = document.createElement("p");
-                        lineElement.textContent = line;
-                        document.getElementById("titleData").appendChild(lineElement);
-                    });
+
+                    // Join all lines of the poem with line breaks and display in a single paragraph element
+                    var poemText = data.join("<br>");
+                    var poemElement = document.createElement("p");
+                    poemElement.innerHTML = poemText;
+                    document.getElementById("titleData").appendChild(poemElement);
                 })
                 .catch(error => console.log("Issue with the fetch command. ERROR."));
         }
