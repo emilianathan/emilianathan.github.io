@@ -1,37 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Poetry API</title>
-	<meta charset="utf-8"/>
-	<script>
-		function getPoetryData() {
-            userTitle = document.getElementById('word').value;
-            var url = "https://poetrydb.org/title/" + userTitle + "/lines.json"
-            fetch(url)
-                .then(response => res.text())
-                .then(data => 
-	            {
-                    // document.getElementById("titleData").innerHTML = 
-                    //         "<br>Lines of poetry found: " + data;
-                    return response.json()
-	            })
-                .then(data => {
-                    document.getElementById("titleData").innerHTML = 
-                    "Lines found: " + data.lines;
-                })
-	        .catch (error => console.log("Issue with the fetch command. ERROR."))
-		}  
+    <title>Poetry API</title>
+    <meta charset="utf-8"/>
+    <script>
+        function getPoetryData() {
+            var userTitle = document.getElementById('userTitle').value; // Corrected the ID
+            var url = "https://poetrydb.org/title/" + userTitle + "/lines.json";
 
-	</script>
+            fetch(url)
+                .then(response => response.json()) // Corrected to response.json()
+                .then(data => {
+                    document.getElementById("titleData").innerHTML = "Lines found: " + data.length + "<br>" + data.join("<br>");
+                })
+                .catch(error => console.log("Issue with the fetch command. ERROR."));
+        }
+    </script>
 </head>
 <body>
-
-	<h1>Poems and Prose!</h1>
-	<form>Submit the title of a poem!: <input type = 'text' name = 'userTitle' id="userTitle">
-		<br><input type = "button" value = "Get Response"
-			onclick="getPoetryData()">
-	</form>
-	<div id="titleData">&nbsp;</div>
+    <h1>Poems and Prose!</h1>
+    <form>
+        Submit the title of a poem!: <input type='text' name='userTitle' id="userTitle">
+        <br><input type="button" value="Get Response" onclick="getPoetryData()">
+    </form>
+    <div id="titleData">&nbsp;</div>
 </body>
 </html>
-
