@@ -53,14 +53,18 @@
                         document.getElementById("titleData").appendChild(lineElement);
                     });
                 })
-                .catch(error => console.log("Issue with the fetch command. ERROR."));
+                .catch(error => {
+                    document.getElementById("titleData").innerHTML = "Poem not found. Try another!";
+                    console.error("Error fetching poem:", error);
+                });
+                 
         }
     </script>
 </head>
 <body>
     <h1>Poems and Prose!</h1>
     <p>Note to user: Your favorite poem may not be in the database. If that's the case, here are a few to check out!</p>
-    <p>"Ozymandias", "A Letter to a Live Poet", and "On the Death of the Rev. Dr. Sewell"</p>
+    <p>The Raven (by Edgar Allen Poe), A Letter to a Live Poet (by Rupert Brooke), and The Summer Day (by Mary Oliver) </p>
     <form id="poetryForm">
         Submit the title of a poem: <input type='text' name='userTitle' id="userTitle">
         <br><input type="button" value="Get Response" id="getButton" onclick="getPoetryData()">
