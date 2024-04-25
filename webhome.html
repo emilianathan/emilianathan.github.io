@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Ticker Home</title>
+</head>
+<body>
+    <h1>Stock Ticker: Search for a Stock!</h1>
+    <form action="Process" method="GET">
+        <label for="userInput">Enter Stock Ticker or Company Name:</label><br>
+        <input type="text" id="userInput" name="userInput"><br><br>
+        
+        <label for="userTypePref">Search Type:</label><br>
+        <input type="radio" id="tickerRadio" name="userTypePref" value="ticker">
+        <label for="tickButton">Ticker Symbol</label><br>
+        
+        <input type="radio" id="companyRadio" name="userTypePref" value="company">
+        <label for="companyButton">Company Name</label><br><br>
+        
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
